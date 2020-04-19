@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "image-resize"
+version = "0.1.0"
+description = ""
+authors = ["Wayne F <wayne.fagin@wearefarm.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+pillow = "^7.1"
+python-resize-image = "^1.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^3.0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
