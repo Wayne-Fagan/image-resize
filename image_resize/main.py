@@ -58,18 +58,18 @@ class ImageResize:
 
         return width, height
 
-    def get_image_width_array(self):
+    def get_image_width_list(self):
         """
-        Return image size array: Based on 16:9 (1920*1080) starting point
+        Return image width list: Based on 16:9 (1920*1080) starting point
         """
 
-        new_sizes = []
+        new_widths = []
 
         for size in self.reduce_image_by:
-            new_size = self.original_width / 100 * size
-            new_sizes.append(int(new_size))
+            new_width = self.original_width / 100 * size
+            new_widths.append(int(new_width))
 
-        return new_sizes
+        return new_widths
 
     def processing(self):
         """
@@ -81,7 +81,7 @@ class ImageResize:
             file_extension = self.get_original_file_extension(file=file)
             if width == self.original_width:
                 file = Image.open(file)
-                for width_size in self.get_image_width_array():
+                for width_size in self.get_image_width_list():
                     calculate_width_precentage = (width_size/float(width))
                     new_horizontal_size = int((float(height)*float(calculate_width_precentage)))
                     file = file.resize((width_size, new_horizontal_size), PIL.Image.ANTIALIAS)
